@@ -35,6 +35,9 @@ export function CtaBar({ category, contact }: { category?: ServiceCategory; cont
           </a>
           <div>
             <p className="font-display text-base text-cream">Залишились питання?</p>
+            <a href={contact.phoneHref} className="block text-sm font-semibold text-gold-light hover:underline">
+              {contact.phoneDisplay}
+            </a>
             <p className="text-sm text-cream/70">Ми на зв&rsquo;язку та готові допомогти!</p>
           </div>
         </div>

@@ -96,7 +96,7 @@ export function LeadForm({
             aria-hidden="true"
             layout
             transition={{ type: "spring", stiffness: 420, damping: 34 }}
-            className="absolute inset-y-0 z-0 w-[calc(50%-4px)] rounded-xl bg-ink"
+            className="absolute inset-y-0 z-0 w-[calc(50%-4px)] rounded-xl bg-slate"
             style={{ left: category === "ozone" ? 0 : "calc(50% + 4px)" }}
           />
           {(Object.keys(CATEGORY_META) as ServiceCategory[]).map((key) => {
@@ -137,7 +137,7 @@ export function LeadForm({
         <select
           id="serviceType"
           {...register("serviceType")}
-          className="h-12 w-full rounded-lg border border-ink/15 bg-white px-4 text-sm text-ink outline-none transition-colors focus:border-gold focus:ring-2 focus:ring-gold/30"
+          className="h-12 w-full rounded-lg border border-ink/15 bg-white-warm px-4 text-sm text-ink outline-none transition-colors focus:border-gold focus:ring-2 focus:ring-gold/30"
         >
           <option value="">Оберемо разом на консультації</option>
           {servicesByCategory[category].map((s) => (

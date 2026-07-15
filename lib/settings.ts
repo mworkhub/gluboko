@@ -13,13 +13,16 @@ export async function getSiteSetting<T>(key: string): Promise<T | null> {
 export const FALLBACK_CONTACT: ContactSettings = {
   phoneDisplay: "+38 (0__) ___-__-__",
   phoneHref: "tel:+380000000000",
-  whatsappHref: "https://wa.me/380000000000",
-  instagramHref: "https://instagram.com/gluboko",
-  telegramHref: "https://t.me/gluboko",
-  viberHref: "viber://chat?number=%2B380000000000",
-  messengerHref: "https://m.me/gluboko",
-  facebookHref: "https://facebook.com/gluboko",
-  youtubeHref: "https://youtube.com/@gluboko",
+  // Social/messenger links are left blank rather than pointing at guessed
+  // URLs — BrandIcons.tsx hides an icon whenever its href is empty, so these
+  // simply don't render until the admin fills in the real ones.
+  whatsappHref: "",
+  instagramHref: "",
+  telegramHref: "",
+  viberHref: "",
+  messengerHref: "",
+  facebookHref: "",
+  youtubeHref: "",
   city: "Київ та Київська область",
   hours: "Щодня 8:00 – 20:00",
 };

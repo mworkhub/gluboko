@@ -24,7 +24,7 @@ export function ConsultationBanner({
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-60px" }}
         transition={{ duration: 0.5 }}
-        className="mx-auto grid max-w-6xl gap-8 rounded-2xl border border-ink/8 bg-white p-8 lg:grid-cols-2 lg:p-10"
+        className="mx-auto grid max-w-6xl gap-8 rounded-2xl border border-ink/8 bg-white-warm p-8 lg:grid-cols-2 lg:p-10"
       >
         <div>
           <h3 className="font-display text-xl text-ink lg:text-2xl">Не знайшли потрібний об&rsquo;єкт?</h3>
@@ -39,7 +39,10 @@ export function ConsultationBanner({
         <div className="flex flex-col gap-4 border-t border-ink/8 pt-6 lg:border-l lg:border-t-0 lg:pl-8 lg:pt-0">
           <p className="text-xs font-semibold uppercase tracking-widest text-gold">Або зв&rsquo;яжіться з нами</p>
           <p className="text-sm text-slate">Зателефонуйте нам прямо зараз</p>
-          <a href={contact.phoneHref} className="font-display text-2xl text-ink transition-colors hover:text-gold">
+          <a
+            href={contact.phoneHref}
+            className="font-sans text-3xl font-bold tracking-tight text-ink transition-colors hover:text-gold"
+          >
             {contact.phoneDisplay}
           </a>
           <Button asChild variant="outline" size="sm" className="w-fit">

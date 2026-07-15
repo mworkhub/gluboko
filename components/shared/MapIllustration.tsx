@@ -82,7 +82,7 @@ export function MapIllustration({ className }: { className?: string }) {
         <p className="mt-3 whitespace-nowrap text-center text-xs font-bold uppercase tracking-wide text-ink">Київ</p>
       </motion.div>
 
-      <div className="absolute bottom-4 right-4 rounded-xl bg-white/90 px-4 py-3 text-right shadow-sm backdrop-blur">
+      <div className="absolute bottom-4 right-4 rounded-xl bg-white-warm/90 px-4 py-3 text-right shadow-sm backdrop-blur">
         <p className="text-xs font-bold uppercase tracking-wide text-ink">Київ та область</p>
         <p className="text-[11px] text-slate">Виїзд по всіх районах</p>
       </div>

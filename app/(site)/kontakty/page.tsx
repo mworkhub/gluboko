@@ -42,7 +42,7 @@ export default async function KontaktyPage() {
               </div>
             </div>
 
-            <a href={contact.phoneHref} className="font-display text-2xl text-cream whitespace-nowrap">
+            <a href={contact.phoneHref} className="font-sans text-3xl font-bold tracking-tight text-cream whitespace-nowrap">
               {contact.phoneDisplay}
             </a>
 
@@ -65,7 +65,7 @@ export default async function KontaktyPage() {
             </div>
           </div>
 
-          <div className="rounded-2xl border border-ink/8 bg-white p-8">
+          <div className="rounded-2xl border border-ink/8 bg-white-warm p-8">
             <p className="text-xs font-semibold uppercase tracking-widest text-gold">Ми працюємо для вас</p>
             <div className="mt-4 flex flex-col gap-3 text-sm text-ink">
               <p>{contact.hours}</p>
@@ -81,7 +81,7 @@ export default async function KontaktyPage() {
       <section className="px-5 pb-16 lg:px-8">
         <div className="mx-auto max-w-6xl rounded-2xl border border-ink/8 bg-cream-deep/50 p-7 lg:p-9">
           <div className="flex items-start gap-4">
-            <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-white">
+            <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-white-warm">
               <ShieldCheck className="h-5 w-5 text-gold" strokeWidth={1.5} />
             </span>
             <div>

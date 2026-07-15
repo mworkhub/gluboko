@@ -18,6 +18,10 @@ const nextConfig: NextConfig = {
       },
       {
         protocol: "https",
+        hostname: "i.pravatar.cc",
+      },
+      {
+        protocol: "https",
         hostname: "rykfkrpqrtsxrmvuxpyt.supabase.co",
         pathname: "/storage/v1/object/public/**",
       },

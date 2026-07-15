@@ -2,7 +2,13 @@
 
 import { useActionState, useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-import { createService, updateService, type ServiceActionState } from "@/lib/actions/services";
+import {
+  createService,
+  getServiceImageUploadUrl,
+  updateService,
+  type ServiceActionState,
+} from "@/lib/actions/services";
+import { createClient } from "@/lib/supabase/client";
 import { SERVICE_ICON_OPTIONS } from "@/lib/validation/services";
 import { SEGMENT_FROM_CATEGORY, type DbServiceCategory } from "@/lib/service-category";
 import type { Service } from "@/lib/types";
@@ -11,6 +17,11 @@ import { Card, CardContent, CardFooter, CardHeader, CardTitle, CardDescription }
 import { Input, Label, Textarea } from "@/components/ui/input";
 
 const initialState: ServiceActionState = { ok: false };
+
+// Storage upload itself has no practical limit worth enforcing here — this
+// cap just keeps an accidental 200mb RAW photo from tying up someone's
+// mobile connection for minutes.
+const MAX_FILE_SIZE = 20 * 1024 * 1024;
 
 export function ServiceForm({
   category,
@@ -22,10 +33,10 @@ export function ServiceForm({
   const router = useRouter();
   const action = service ? updateService.bind(null, service.id) : createService;
   const [state, formAction, isPending] = useActionState(action, initialState);
+  const [file, setFile] = useState<File | null>(null);
   const [preview, setPreview] = useState<string | null>(service?.image_url ?? null);
   const [fileError, setFileError] = useState<string | null>(null);
-
-  const MAX_FILE_SIZE = 4 * 1024 * 1024;
+  const [uploading, setUploading] = useState(false);
 
   useEffect(() => {
     if (state.ok) {
@@ -34,8 +45,38 @@ export function ServiceForm({
     }
   }, [state.ok, category, router]);
 
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    const formEl = e.currentTarget;
+    const formData = new FormData(formEl);
+    formData.delete("image");
+
+    if (file) {
+      setUploading(true);
+      setFileError(null);
+      try {
+        const slug = String(formData.get("slug") ?? "");
+        const ext = file.name.split(".").pop() ?? "jpg";
+        const { path, token, publicUrl } = await getServiceImageUploadUrl(category, slug, ext);
+        const supabase = createClient();
+        const { error } = await supabase.storage.from("images").uploadToSignedUrl(path, token, file);
+        if (error) throw error;
+        formData.set("image_url", publicUrl);
+      } catch (err) {
+        setUploading(false);
+        setFileError(err instanceof Error ? err.message : "Не вдалося завантажити фото.");
+        return;
+      }
+      setUploading(false);
+    } else if (service?.image_url) {
+      formData.set("image_url", service.image_url);
+    }
+
+    formAction(formData);
+  }
+
   return (
-    <form action={formAction} className="max-w-2xl">
+    <form onSubmit={handleSubmit} className="max-w-2xl">
       <input type="hidden" name="category" value={category} />
       <Card>
         <CardHeader>
@@ -113,11 +154,13 @@ export function ServiceForm({
                 const f = e.target.files?.[0];
                 if (!f) return;
                 if (f.size > MAX_FILE_SIZE) {
-                  setFileError("Файл завеликий (максимум 4 МБ). Стисніть фото або оберіть менше за розміром.");
+                  setFileError("Файл завеликий (максимум 20 МБ). Стисніть фото або оберіть менше за розміром.");
                   e.target.value = "";
+                  setFile(null);
                   return;
                 }
                 setFileError(null);
+                setFile(f);
                 setPreview(URL.createObjectURL(f));
               }}
               className="block w-full text-sm text-slate file:mr-4 file:rounded-full file:border-0 file:bg-ink file:px-4 file:py-2 file:text-xs file:font-semibold file:uppercase file:tracking-wide file:text-cream file:hover:bg-ink-light"
@@ -131,8 +174,8 @@ export function ServiceForm({
           {state.error && <p className="text-sm text-red-600">{state.error}</p>}
         </CardContent>
         <CardFooter>
-          <Button type="submit" disabled={isPending}>
-            {isPending ? "Зберігаємо..." : "Зберегти"}
+          <Button type="submit" disabled={isPending || uploading}>
+            {uploading ? "Завантажуємо фото..." : isPending ? "Зберігаємо..." : "Зберегти"}
           </Button>
         </CardFooter>
       </Card>

@@ -29,7 +29,7 @@ export function AdminMobileNav({ newCounts }: { newCounts: NewLeadCounts }) {
     <div className="border-b border-ink/8 bg-white/60 lg:hidden">
       <div className="flex items-center gap-2 px-5 py-4">
         <LogoMark size="sm" />
-        <span className="font-display text-sm text-ink">ГЛИБОКО</span>
+        <span className="font-logo text-sm tracking-[0.12em] text-ink">ГЛИБОКО</span>
       </div>
       <nav className="flex gap-1 overflow-x-auto px-5 pb-3">
         {links.map((link) => {

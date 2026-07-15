@@ -35,21 +35,27 @@ function IconRow({
     <div className={cn("flex items-center gap-3", className)}>
       {items.map(({ key, Icon, bg, label }) => {
         const href = contact[key];
-        if (!href) return null;
+        const style = variant === "solid" ? { backgroundColor: bg } : { borderColor: `${bg}66`, color: bg };
+        const iconClassName = cn(
+          "flex shrink-0 items-center justify-center rounded-full shadow-sm transition-transform",
+          href && "hover:scale-110",
+          variant === "solid" ? "text-white-warm" : "border bg-transparent",
+          dimension
+        );
+
+        // No link configured yet in admin settings — show the icon as a
+        // non-clickable placeholder instead of hiding it; once the admin
+        // adds a real URL it becomes a live link automatically.
+        if (!href) {
+          return (
+            <span key={key} aria-label={label} aria-disabled="true" style={style} className={cn(iconClassName, "cursor-default")}>
+              <Icon className={iconSize} />
+            </span>
+          );
+        }
+
         return (
-          <a
-            key={key}
-            href={href}
-            target="_blank"
-            rel="noreferrer"
-            aria-label={label}
-            style={variant === "solid" ? { backgroundColor: bg } : { borderColor: `${bg}66`, color: bg }}
-            className={cn(
-              "flex shrink-0 items-center justify-center rounded-full shadow-sm transition-transform hover:scale-110",
-              variant === "solid" ? "text-white" : "border bg-transparent",
-              dimension
-            )}
-          >
+          <a key={key} href={href} target="_blank" rel="noreferrer" aria-label={label} style={style} className={iconClassName}>
             <Icon className={iconSize} />
           </a>
         );

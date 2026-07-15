@@ -75,7 +75,7 @@ export function AdminSidebar({ newCounts }: { newCounts: NewLeadCounts }) {
     <aside className="hidden w-64 shrink-0 flex-col gap-8 border-r border-ink/8 bg-white/60 p-5 lg:flex">
       <Link href="/admin" className="flex items-center gap-2.5 px-1">
         <LogoMark size="sm" />
-        <span className="font-display text-sm text-ink">ГЛИБОКО</span>
+        <span className="font-logo text-sm tracking-[0.12em] text-ink">ГЛИБОКО</span>
       </Link>
 
       <div className="flex flex-1 flex-col gap-7">

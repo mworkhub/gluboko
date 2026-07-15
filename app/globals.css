@@ -1,14 +1,15 @@
 @import "tailwindcss";
 
 :root {
-  --background: #faf8f4;
-  --foreground: #1c2434;
+  --background: #fcf7f0;
+  --foreground: #081f43;
 
-  --color-ink: #0f1f3d;
-  --color-ink-light: #16294f;
-  --color-cream: #faf8f4;
+  --color-ink: #081f43;
+  --color-ink-light: #132d59;
+  --color-cream: #fcf7f0;
   --color-cream-deep: #f1ecdf;
-  --color-gold: #c9a063;
+  --color-white-warm: #fffdfc;
+  --color-gold: #c9a464;
   --color-gold-light: #e3c690;
   --color-slate: #5b6472;
   --color-sphere-start: #7db4f7;
@@ -25,6 +26,7 @@
   --color-ink-light: var(--color-ink-light);
   --color-cream: var(--color-cream);
   --color-cream-deep: var(--color-cream-deep);
+  --color-white-warm: var(--color-white-warm);
   --color-gold: var(--color-gold);
   --color-gold-light: var(--color-gold-light);
   --color-slate: var(--color-slate);
@@ -33,13 +35,34 @@
   --color-mocha: var(--color-mocha);
   --color-mocha-light: var(--color-mocha-light);
 
-  --font-display: var(--font-unbounded);
+  --font-display: var(--font-cormorant);
   --font-sans: var(--font-inter);
+  --font-logo: var(--font-logo-face);
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
+}
+
+/* Forum only ships a single (400) weight; this nudges the wordmark a touch
+   heavier without the distortion of the browser's synthetic bold. */
+.font-logo {
+  -webkit-text-stroke: 0.5px currentColor;
+}
+
+@keyframes logo-glow {
+  0%,
+  100% {
+    filter: drop-shadow(0 0 0px rgba(201, 164, 100, 0));
+  }
+  50% {
+    filter: drop-shadow(0 0 6px rgba(201, 164, 100, 0.55));
+  }
+}
+
+.animate-logo-glow {
+  animation: logo-glow 4.5s ease-in-out infinite;
 }
 
 @media (prefers-reduced-motion: reduce) {

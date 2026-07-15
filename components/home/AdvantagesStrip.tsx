@@ -2,6 +2,7 @@
 
 import { motion } from "motion/react";
 import { Clock, Gem, Heart, Leaf, Lock, Shield, Sparkles, Star } from "lucide-react";
+import { SectionDivider } from "@/components/shared/SectionDivider";
 import type { AdvantagesSettings } from "@/lib/types";
 
 const ICONS = {
@@ -27,7 +28,7 @@ export function AdvantagesStrip({ advantages }: { advantages: AdvantagesSettings
           className="origin-left border-t border-ink/8"
         />
 
-        <div className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-8 grid grid-cols-4 gap-x-2 gap-y-8 sm:mt-12 lg:gap-8">
           {advantages.items.map((a, i) => {
             const Icon = ICONS[a.icon as keyof typeof ICONS] ?? Gem;
             return (
@@ -38,19 +39,24 @@ export function AdvantagesStrip({ advantages }: { advantages: AdvantagesSettings
                 viewport={{ once: true, margin: "-60px" }}
                 transition={{ duration: 0.5, ease: "easeOut", delay: i * 0.1 }}
                 whileHover={{ y: -3 }}
-                className="text-center sm:text-left"
+                className="text-center lg:text-left"
               >
                 <motion.div
                   initial={{ scale: 0, rotate: -25 }}
                   whileInView={{ scale: 1, rotate: 0 }}
                   viewport={{ once: true, margin: "-60px" }}
                   transition={{ type: "spring", stiffness: 260, damping: 16, delay: i * 0.1 + 0.15 }}
-                  className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-gold/10 sm:mx-0"
+                  className="mx-auto flex h-9 w-9 items-center justify-center rounded-full bg-gold/10 sm:h-12 sm:w-12 lg:mx-0"
                 >
-                  <Icon className="h-6 w-6 text-gold" strokeWidth={1.5} />
+                  <Icon className="h-[18px] w-[18px] text-gold sm:h-6 sm:w-6" strokeWidth={1.5} />
                 </motion.div>
-                <h4 className="mt-4 text-xs font-bold uppercase tracking-wide text-ink">{a.title}</h4>
-                <p className="mt-2 text-sm leading-relaxed text-slate">{a.desc}</p>
+                <h4 className="mt-2.5 break-words text-[10px] font-bold uppercase leading-tight tracking-wide text-ink sm:mt-4 sm:text-xs sm:break-normal">
+                  {a.title}
+                </h4>
+                <SectionDivider className="my-2 justify-center sm:my-3 lg:justify-start" lineClassName="w-5 sm:w-10" />
+                <p className="break-words text-[10px] leading-snug text-slate sm:break-normal sm:text-sm sm:leading-relaxed">
+                  {a.desc}
+                </p>
               </motion.div>
             );
           })}

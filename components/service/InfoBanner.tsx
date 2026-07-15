@@ -18,7 +18,7 @@ export function InfoBanner() {
           whileInView={{ scale: 1, rotate: 0 }}
           viewport={{ once: true, margin: "-60px" }}
           transition={{ type: "spring", stiffness: 240, damping: 15, delay: 0.15 }}
-          className="relative flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-white"
+          className="relative flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-white-warm"
         >
           <motion.span
             className="absolute inset-0 rounded-full bg-gold/20"

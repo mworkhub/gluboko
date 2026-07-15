@@ -6,7 +6,7 @@ import { Reveal } from "./Reveal";
 
 const NAV_LINKS = [
   { href: "/", label: "Головна" },
-  { href: "/#about", label: "Про нас" },
+  { href: "/pro-nas", label: "Про нас" },
   { href: "/ozonuvannya", label: "Послуги" },
   { href: "/#advantages", label: "Переваги" },
   { href: "/#reviews", label: "Відгуки" },
@@ -30,7 +30,7 @@ export function Footer({ contact }: { contact: ContactSettings }) {
           <div>
             <Link href="/" className="flex items-center gap-2.5">
               <LogoMark size="sm" />
-              <span className="font-display text-base text-cream">ГЛИБОКО</span>
+              <span className="font-logo text-base tracking-[0.12em] text-cream">ГЛИБОКО</span>
             </Link>
             <p className="mt-4 max-w-xs text-sm leading-relaxed">
               Професійне озонування та хімчистка для дому, офісу та авто. Повертаємо чистоту та свіжість вашому

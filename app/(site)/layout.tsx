@@ -28,7 +28,7 @@ export default async function SiteLayout({ children }: { children: React.ReactNo
   return (
     <LeadModalProvider servicesByCategory={servicesByCategory}>
       <ScrollProgressBar />
-      <Header contact={resolvedContact} />
+      <Header />
       <main className="flex-1">{children}</main>
       <Footer contact={resolvedContact} />
     </LeadModalProvider>

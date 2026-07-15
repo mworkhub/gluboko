@@ -25,25 +25,31 @@ function revalidateServiceRoutes(category: DbServiceCategory) {
   revalidatePath("/himchistka-mebliv");
 }
 
-async function uploadServiceImage(
-  file: File,
+// Signed upload URL so the browser can PUT the file straight to Supabase
+// Storage, bypassing our own server entirely. Server Actions on Vercel cap
+// request bodies at ~4.5mb regardless of the `bodySizeLimit` config (that
+// setting only controls Next.js's own check, not Vercel's platform ceiling),
+// so routing large photos through a Server Action silently fails past a few
+// MB. This is the standard workaround: the action only hands out a
+// short-lived signed URL, never touches the file bytes itself.
+export async function getServiceImageUploadUrl(
   category: DbServiceCategory,
-  slug: string
-): Promise<string> {
-  const supabase = createAdminClient();
-  const ext = file.name.split(".").pop()?.toLowerCase() || "jpg";
-  const path = `services/${category}/${slug}-${Date.now()}.${ext}`;
+  slug: string,
+  ext: string
+): Promise<{ path: string; token: string; publicUrl: string }> {
+  await requireAdmin();
 
-  const { error } = await supabase.storage.from("images").upload(path, file, {
-    contentType: file.type || "image/jpeg",
-    upsert: true,
-  });
+  const supabase = createAdminClient();
+  const safeExt = ext.replace(/[^a-z0-9]/gi, "").toLowerCase() || "jpg";
+  const path = `services/${category}/${slug}-${Date.now()}.${safeExt}`;
+
+  const { data, error } = await supabase.storage.from("images").createSignedUploadUrl(path);
   if (error) {
-    throw new Error(`Не вдалося завантажити фото: ${error.message}`);
+    throw new Error(`Не вдалося підготувати завантаження: ${error.message}`);
   }
 
-  const { data } = supabase.storage.from("images").getPublicUrl(path);
-  return data.publicUrl;
+  const { data: publicUrlData } = supabase.storage.from("images").getPublicUrl(path);
+  return { path, token: data.token, publicUrl: publicUrlData.publicUrl };
 }
 
 export async function createService(
@@ -58,16 +64,9 @@ export async function createService(
   }
   const data = parsed.data;
 
-  const file = formData.get("image");
-  if (!(file instanceof File) || file.size === 0) {
+  const image_url = formData.get("image_url");
+  if (typeof image_url !== "string" || !image_url) {
     return { ok: false, error: "Додайте фото послуги." };
-  }
-
-  let image_url: string;
-  try {
-    image_url = await uploadServiceImage(file, data.category, data.slug);
-  } catch (err) {
-    return { ok: false, error: err instanceof Error ? err.message : "Не вдалося завантажити фото." };
   }
 
   const supabase = createAdminClient();
@@ -97,13 +96,9 @@ export async function updateService(
   const data = parsed.data;
 
   const update: Record<string, unknown> = { ...data };
-  const file = formData.get("image");
-  if (file instanceof File && file.size > 0) {
-    try {
-      update.image_url = await uploadServiceImage(file, data.category, data.slug);
-    } catch (err) {
-      return { ok: false, error: err instanceof Error ? err.message : "Не вдалося завантажити фото." };
-    }
+  const image_url = formData.get("image_url");
+  if (typeof image_url === "string" && image_url) {
+    update.image_url = image_url;
   }
 
   const supabase = createAdminClient();
