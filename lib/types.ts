@@ -20,6 +20,7 @@ export type ContactSettings = {
   messengerHref: string;
   facebookHref: string;
   youtubeHref: string;
+  tiktokHref: string;
   city: string;
   hours: string;
 };

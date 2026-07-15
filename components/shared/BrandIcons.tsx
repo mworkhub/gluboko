@@ -1,4 +1,4 @@
-import { FaFacebook, FaFacebookMessenger, FaInstagram, FaTelegram, FaViber, FaWhatsapp, FaYoutube } from "react-icons/fa6";
+import { FaFacebook, FaFacebookMessenger, FaInstagram, FaTelegram, FaTiktok, FaViber, FaWhatsapp, FaYoutube } from "react-icons/fa6";
 import type { ContactSettings } from "@/lib/types";
 import { cn } from "@/lib/utils";
 
@@ -13,6 +13,7 @@ const SOCIALS = [
   { key: "instagramHref", Icon: FaInstagram, bg: "#E1306C", label: "Instagram" },
   { key: "facebookHref", Icon: FaFacebook, bg: "#1877F2", label: "Facebook" },
   { key: "youtubeHref", Icon: FaYoutube, bg: "#FF0000", label: "YouTube" },
+  { key: "tiktokHref", Icon: FaTiktok, bg: "#000000", label: "TikTok" },
 ] as const satisfies { key: keyof ContactSettings; Icon: typeof FaInstagram; bg: string; label: string }[];
 
 function IconRow({

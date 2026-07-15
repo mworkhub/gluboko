@@ -10,6 +10,7 @@ export const contactSettingsSchema = z.object({
   messengerHref: z.string().trim(),
   facebookHref: z.string().trim(),
   youtubeHref: z.string().trim(),
+  tiktokHref: z.string().trim(),
   city: z.string().trim().min(1, "Обов'язкове поле"),
   hours: z.string().trim().min(1, "Обов'язкове поле"),
 });

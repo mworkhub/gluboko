@@ -83,6 +83,11 @@ export function ContactSettingsForm({ initialValue }: { initialValue: ContactSet
             {errors.youtubeHref && <p className="mt-1 text-xs text-red-600">{errors.youtubeHref.message}</p>}
           </div>
           <div>
+            <Label htmlFor="tiktokHref">TikTok</Label>
+            <Input id="tiktokHref" placeholder="https://tiktok.com/@..." {...register("tiktokHref")} />
+            {errors.tiktokHref && <p className="mt-1 text-xs text-red-600">{errors.tiktokHref.message}</p>}
+          </div>
+          <div>
             <Label htmlFor="city">Місто / зона обслуговування</Label>
             <Input id="city" placeholder="Київ та Київська область" {...register("city")} />
             {errors.city && <p className="mt-1 text-xs text-red-600">{errors.city.message}</p>}

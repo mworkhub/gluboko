@@ -1,6 +1,6 @@
 import { z } from "zod";
 
-const phoneRegex = /^(\+380\d{9}|0\d{9})$/;
+const phoneRegex = /^(\+380\d{9}|380\d{9}|0\d{9})$/;
 
 export const leadFormSchema = z.object({
   name: z
@@ -11,7 +11,8 @@ export const leadFormSchema = z.object({
   phone: z
     .string()
     .trim()
-    .regex(phoneRegex, "Введіть номер у форматі +380XXXXXXXXX"),
+    .transform((value) => value.replace(/[\s\-()]/g, ""))
+    .pipe(z.string().regex(phoneRegex, "Введіть номер у форматі +380XXXXXXXXX")),
   comment: z.string().trim().max(1000).optional().or(z.literal("")),
   serviceType: z.string().max(200).optional().or(z.literal("")),
   // anti-spam: must stay empty
@@ -23,5 +24,7 @@ export const leadFormSchema = z.object({
 export type LeadFormValues = z.infer<typeof leadFormSchema>;
 
 export function normalizePhone(phone: string) {
-  return phone.startsWith("0") ? `+38${phone}` : phone;
+  if (phone.startsWith("0")) return `+38${phone}`;
+  if (phone.startsWith("380")) return `+${phone}`;
+  return phone;
 }

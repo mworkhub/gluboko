@@ -23,6 +23,7 @@ export const FALLBACK_CONTACT: ContactSettings = {
   messengerHref: "",
   facebookHref: "",
   youtubeHref: "",
+  tiktokHref: "",
   city: "Київ та Київська область",
   hours: "Щодня 8:00 – 20:00",
 };
