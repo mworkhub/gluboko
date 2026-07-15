@@ -3,9 +3,9 @@ import { z } from "zod";
 export const contactSettingsSchema = z.object({
   phoneDisplay: z.string().trim().min(1, "Обов'язкове поле"),
   phoneHref: z.string().trim().min(1, "Обов'язкове поле"),
-  whatsappHref: z.string().trim().min(1, "Обов'язкове поле"),
-  instagramHref: z.string().trim().min(1, "Обов'язкове поле"),
-  telegramHref: z.string().trim().min(1, "Обов'язкове поле"),
+  whatsappHref: z.string().trim(),
+  instagramHref: z.string().trim(),
+  telegramHref: z.string().trim(),
   viberHref: z.string().trim(),
   messengerHref: z.string().trim(),
   facebookHref: z.string().trim(),
