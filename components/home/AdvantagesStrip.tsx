@@ -2,7 +2,7 @@
 
 import { motion } from "motion/react";
 import type { ComponentType } from "react";
-import { Award, Clock, Crown, Gem, Heart, Leaf, Lock, Shield, Sparkles, Star } from "lucide-react";
+import { Award, Clock, Crown, Gem, Heart, Leaf, Lock, Settings, Shield, Sparkles, Star, Trophy } from "lucide-react";
 import { SectionDivider } from "@/components/shared/SectionDivider";
 import { cn } from "@/lib/utils";
 import type { AdvantagesSettings } from "@/lib/types";
@@ -13,6 +13,39 @@ function ShieldCrown({ className, strokeWidth }: { className?: string; strokeWid
       <Shield className="absolute inset-0 h-full w-full" strokeWidth={strokeWidth} />
       <Crown
         className="absolute left-1/2 top-[40%] h-[46%] w-[46%] -translate-x-1/2 -translate-y-1/2"
+        strokeWidth={strokeWidth}
+      />
+    </span>
+  );
+}
+
+function StarTrophy({ className, strokeWidth }: { className?: string; strokeWidth?: number }) {
+  return (
+    <span className={cn("relative inline-block", className)}>
+      <Star className="absolute inset-0 h-full w-full" strokeWidth={strokeWidth} />
+      <Trophy
+        className="absolute left-1/2 top-1/2 h-[42%] w-[42%] -translate-x-1/2 -translate-y-1/2"
+        strokeWidth={strokeWidth}
+      />
+    </span>
+  );
+}
+
+function TwinLeaf({ className, strokeWidth }: { className?: string; strokeWidth?: number }) {
+  return (
+    <span className={cn("relative inline-block", className)}>
+      <Leaf className="absolute inset-0 h-full w-full" strokeWidth={strokeWidth} />
+      <Leaf className="absolute inset-0 h-full w-full -scale-x-100 -scale-y-100" strokeWidth={strokeWidth} />
+    </span>
+  );
+}
+
+function GearStar({ className, strokeWidth }: { className?: string; strokeWidth?: number }) {
+  return (
+    <span className={cn("relative inline-block", className)}>
+      <Settings className="absolute inset-0 h-full w-full" strokeWidth={strokeWidth} />
+      <Star
+        className="absolute left-1/2 top-1/2 h-[34%] w-[34%] -translate-x-1/2 -translate-y-1/2 fill-current"
         strokeWidth={strokeWidth}
       />
     </span>
@@ -31,6 +64,9 @@ const ICONS = {
   award: Award,
   crown: Crown,
   "shield-crown": ShieldCrown,
+  "star-trophy": StarTrophy,
+  "twin-leaf": TwinLeaf,
+  "gear-star": GearStar,
 } satisfies Record<string, ComponentType<{ className?: string; strokeWidth?: number }>>;
 
 export function AdvantagesStrip({ advantages }: { advantages: AdvantagesSettings }) {

@@ -5,8 +5,8 @@
 export const HOME_ADVANTAGES = {
   items: [
     { title: "10 років досвіду", desc: "Працюємо на ринку озонування та хімчистки", icon: "shield-crown" as const },
-    { title: "7000+ виконаних замовлень", desc: "Довіра клієнтів у Києві та області", icon: "star" as const },
-    { title: "Безпечні технології", desc: "Сучасне обладнання та сертифіковані засоби", icon: "leaf" as const },
-    { title: "Гарантія якості", desc: "На кожному етапі виконання робіт", icon: "award" as const },
+    { title: "7000+ виконаних замовлень", desc: "Довіра клієнтів у Києві та області", icon: "star-trophy" as const },
+    { title: "Безпечні технології", desc: "Сучасне обладнання та сертифіковані засоби", icon: "twin-leaf" as const },
+    { title: "Гарантія якості", desc: "На кожному етапі виконання робіт", icon: "gear-star" as const },
   ],
 };
