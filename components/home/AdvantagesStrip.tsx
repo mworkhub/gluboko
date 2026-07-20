@@ -1,9 +1,23 @@
 "use client";
 
 import { motion } from "motion/react";
+import type { ComponentType } from "react";
 import { Award, Clock, Crown, Gem, Heart, Leaf, Lock, Shield, Sparkles, Star } from "lucide-react";
 import { SectionDivider } from "@/components/shared/SectionDivider";
+import { cn } from "@/lib/utils";
 import type { AdvantagesSettings } from "@/lib/types";
+
+function ShieldCrown({ className, strokeWidth }: { className?: string; strokeWidth?: number }) {
+  return (
+    <span className={cn("relative inline-block", className)}>
+      <Shield className="absolute inset-0 h-full w-full" strokeWidth={strokeWidth} />
+      <Crown
+        className="absolute left-1/2 top-[40%] h-[46%] w-[46%] -translate-x-1/2 -translate-y-1/2"
+        strokeWidth={strokeWidth}
+      />
+    </span>
+  );
+}
 
 const ICONS = {
   gem: Gem,
@@ -16,7 +30,8 @@ const ICONS = {
   star: Star,
   award: Award,
   crown: Crown,
-} satisfies Record<string, typeof Gem>;
+  "shield-crown": ShieldCrown,
+} satisfies Record<string, ComponentType<{ className?: string; strokeWidth?: number }>>;
 
 export function AdvantagesStrip({ advantages }: { advantages: AdvantagesSettings }) {
   return (
