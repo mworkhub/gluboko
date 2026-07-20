@@ -31,12 +31,24 @@ function StarTrophy({ className, strokeWidth }: { className?: string; strokeWidt
   );
 }
 
-function TwinLeaf({ className, strokeWidth }: { className?: string; strokeWidth?: number }) {
+function TwinLeaf({ className, strokeWidth = 1.5 }: { className?: string; strokeWidth?: number }) {
   return (
-    <span className={cn("relative inline-block", className)}>
-      <Leaf className="absolute inset-0 h-full w-full" strokeWidth={strokeWidth} />
-      <Leaf className="absolute inset-0 h-full w-full -scale-x-100 -scale-y-100" strokeWidth={strokeWidth} />
-    </span>
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={strokeWidth}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={className}
+    >
+      <path d="M12 19C11.5 12.5 13.5 6.5 21 4C22 8.5 20.5 15 15.5 17.5C13.8 18.4 12.6 18.9 12 19Z" />
+      <path d="M12.3 18.5L19 6.5" />
+      <path d="M12 19C12.5 12.5 10.5 6.5 3 4C2 8.5 3.5 15 8.5 17.5C10.2 18.4 11.4 18.9 12 19Z" />
+      <path d="M11.7 18.5L5 6.5" />
+      <path d="M10.5 18L15.5 22.5" />
+      <path d="M13.5 18L8.5 22.5" />
+    </svg>
   );
 }
 
