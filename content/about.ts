@@ -20,7 +20,7 @@ export const ABOUT_STATS = [
   { value: "10+", label: "років досвіду на ринку", icon: "award" as const },
   { value: "7000+", label: "задоволених клієнтів", icon: "users" as const },
   { value: "Київ та Київська область", label: "працюємо для Вас", icon: "map-pin" as const },
-  { value: "100%", label: "гарантія результату", icon: "badge-check" as const },
+  { value: "Якісне", label: "виконання робіт", icon: "badge-check" as const },
 ];
 
 export const ABOUT_TESTIMONIALS = [
@@ -47,5 +47,5 @@ export const ABOUT_TESTIMONIALS = [
 export const ABOUT_TRUST_BANNER = {
   eyebrow: "Ваша довіра — наша головна цінність",
   text: "Ми не просто надаємо послуги — ми дбаємо про простір, у якому живете Ви та Ваші близькі. Обираючи «Глибоко», Ви обираєте безпеку, якість і турботу.",
-  badge: { value: "100%", label: "гарантія чистоти" },
+  badge: { value: "Якісне", label: "виконання робіт" },
 };
