@@ -66,7 +66,7 @@ export default async function KontaktyPage() {
           </div>
 
           <div className="rounded-2xl border border-ink/8 bg-white-warm p-8">
-            <p className="text-xs font-semibold uppercase tracking-widest text-gold">Ми працюємо для вас</p>
+            <p className="text-xs font-semibold uppercase tracking-widest text-gold">Ми працюємо для Вас</p>
             <div className="mt-4 flex flex-col gap-3 text-sm text-ink">
               <p>{contact.hours}</p>
               <p>Без вихідних</p>

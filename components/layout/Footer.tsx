@@ -33,7 +33,7 @@ export function Footer({ contact }: { contact: ContactSettings }) {
               <span className="font-logo text-base tracking-[0.12em] text-cream">ГЛИБОКО</span>
             </Link>
             <p className="mt-4 max-w-xs text-sm leading-relaxed">
-              Професійне озонування та хімчистка для дому, офісу та авто. Повертаємо чистоту та свіжість вашому
+              Професійне озонування та хімчистка для дому, офісу та авто. Повертаємо чистоту та свіжість Вашому
               простору.
             </p>
             <SocialIcons contact={contact} size="sm" className="mt-5" />

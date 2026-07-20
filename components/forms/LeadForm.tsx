@@ -81,7 +81,7 @@ export function LeadForm({
         <CheckCircle2 className="h-14 w-14 text-gold" strokeWidth={1.5} />
         <h3 className="font-display text-xl text-ink">Заявку надіслано</h3>
         <p className="max-w-sm text-sm text-slate">
-          Дякуємо! Ми зв&rsquo;яжемось із вами найближчим часом, щоб узгодити деталі виїзду.
+          Дякуємо! Ми зв&rsquo;яжемось із Вами найближчим часом, щоб узгодити деталі виїзду.
         </p>
       </motion.div>
     );
@@ -90,7 +90,7 @@ export function LeadForm({
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-4">
       <div>
-        <Label>Яка послуга вас цікавить?</Label>
+        <Label>Яка послуга Вас цікавить?</Label>
         <div className="relative grid grid-cols-2 gap-2">
           <motion.div
             aria-hidden="true"

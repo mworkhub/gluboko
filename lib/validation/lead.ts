@@ -6,7 +6,7 @@ export const leadFormSchema = z.object({
   name: z
     .string()
     .trim()
-    .min(2, "Введіть, будь ласка, ваше ім'я")
+    .min(2, "Введіть, будь ласка, Ваше ім'я")
     .max(100),
   phone: z
     .string()

@@ -92,7 +92,7 @@ export function Hero() {
             transition={{ duration: 0.5, delay: 0.25, ease: "easeOut" }}
             className="max-w-[16rem] text-xs font-medium leading-relaxed text-ink/80"
           >
-            Глибоке очищення. Безпека для вашої родини. Турбота про простір, який ви любите.
+            Глибоке очищення. Безпека для Вашої родини. Турбота про простір, який Ви любите.
           </motion.p>
 
           <motion.div
@@ -135,7 +135,7 @@ export function Hero() {
             variants={item}
             className="text-balance mt-4 font-display text-[clamp(1.8rem,3.9vw,3rem)] font-bold uppercase leading-[1.12] tracking-tight text-ink"
           >
-            Створюємо здоровий мікроклімат вашого простору
+            Створюємо здоровий мікроклімат Вашого простору
           </motion.h1>
 
           <motion.div variants={item}>
@@ -143,7 +143,7 @@ export function Hero() {
           </motion.div>
 
           <motion.p variants={item} className="max-w-md text-base leading-relaxed text-[#525252]">
-            Глибоке очищення. Безпека для вашої родини. Турбота про простір, який ви любите.
+            Глибоке очищення. Безпека для Вашої родини. Турбота про простір, який Ви любите.
           </motion.p>
 
           <motion.div

@@ -29,11 +29,11 @@ export const FALLBACK_CONTACT: ContactSettings = {
 };
 
 export const FALLBACK_ABOUT: AboutSettings = {
-  quote: "Ми створюємо бездоганну чистоту, щоб ви насолоджувалися найважливішим — життям.",
+  quote: "Ми створюємо бездоганну чистоту, щоб Ви насолоджувалися найважливішим — життям.",
   signature: "команда ГЛИБОКО",
   trust_badges: [
     { title: "Професіонали своєї справи", icon: "award" },
-    { title: "100% гарантія результату", icon: "shield-check" },
+    { title: "Якісне виконання робіт", icon: "shield-check" },
     { title: "Зручне планування виїзду", icon: "calendar-check" },
     { title: "Довіра клієнтів та рекомендації", icon: "heart-handshake" },
   ],
@@ -42,12 +42,12 @@ export const FALLBACK_ABOUT: AboutSettings = {
 export const FALLBACK_ADVANTAGES: AdvantagesSettings = {
   items: [
     { title: "Преміальна якість", desc: "Професійне обладнання та засоби найвищого рівня", icon: "gem" },
-    { title: "Екологічно та безпечно", desc: "Турбота про здоров'я вашої родини та довкілля", icon: "leaf" },
+    { title: "Екологічно та безпечно", desc: "Турбота про здоров'я Вашої родини та довкілля", icon: "leaf" },
     {
-      title: "Економія вашого часу",
+      title: "Економія Вашого часу",
       desc: "Оперативний виїзд та зручний сервіс без зайвого клопоту",
       icon: "clock",
     },
-    { title: "Конфіденційність", desc: "Повна дискретність і повага до вашого простору", icon: "lock" },
+    { title: "Конфіденційність", desc: "Повна дискретність і повага до Вашого простору", icon: "lock" },
   ],
 };

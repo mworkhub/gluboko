@@ -12,7 +12,7 @@ import { getServicesByCategory } from "@/lib/services";
 export const metadata: Metadata = {
   title: "Замовити послугу",
   description:
-    "Залиште заявку на озонування або хімчистку меблів — ми зв'яжемось з вами найближчим часом для уточнення деталей.",
+    "Залиште заявку на озонування або хімчистку меблів — ми зв'яжемось з Вами найближчим часом для уточнення деталей.",
 };
 
 export default async function ZamovytyPosluhuPage() {
@@ -44,7 +44,7 @@ export default async function ZamovytyPosluhuPage() {
               </h1>
               <p className="mt-3 font-display text-lg italic text-gold">Швидко. Зручно. Конфіденційно.</p>
               <p className="mt-5 max-w-xl leading-relaxed text-slate">
-                Залиште заявку — і ми зв&rsquo;яжемось з вами найближчим часом для уточнення деталей та підбору
+                Залиште заявку — і ми зв&rsquo;яжемось з Вами найближчим часом для уточнення деталей та підбору
                 оптимального рішення.
               </p>
             </div>
@@ -68,7 +68,7 @@ export default async function ZamovytyPosluhuPage() {
         <Card className="mx-auto max-w-2xl">
           <CardHeader>
             <CardTitle>Залиште заявку</CardTitle>
-            <CardDescription>Ми зв&rsquo;яжемось з вами найближчим часом</CardDescription>
+            <CardDescription>Ми зв&rsquo;яжемось з Вами найближчим часом</CardDescription>
           </CardHeader>
           <CardContent>
             <LeadForm servicesByCategory={servicesByCategory} />

@@ -103,14 +103,14 @@ export function KontaktyHero() {
             <SectionDivider className="my-5" lineClassName="w-40" />
           </motion.div>
           <motion.p variants={item} className="max-w-xl leading-relaxed text-slate">
-            Залишайте заявку або телефонуйте — наш спеціаліст проконсультує вас та підбере найкраще рішення для
-            вашого простору.
+            Залишайте заявку або телефонуйте — наш спеціаліст проконсультує Вас та підбере найкраще рішення для
+            Вашого простору.
           </motion.p>
         </div>
 
         <motion.p variants={item} className="max-w-xl text-sm leading-relaxed text-slate lg:hidden">
-          Залишайте заявку або телефонуйте — наш спеціаліст проконсультує вас та підбере найкраще рішення для
-          вашого простору.
+          Залишайте заявку або телефонуйте — наш спеціаліст проконсультує Вас та підбере найкраще рішення для
+          Вашого простору.
         </motion.p>
       </motion.div>
     </section>

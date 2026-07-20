@@ -29,7 +29,7 @@ export function ConsultationBanner({
         <div>
           <h3 className="font-display text-xl text-ink lg:text-2xl">Не знайшли потрібний об&rsquo;єкт?</h3>
           <p className="mt-3 max-w-sm text-sm leading-relaxed text-slate">
-            Напишіть нам — ми підберемо рішення саме для вашого випадку!
+            Напишіть нам — ми підберемо рішення саме для Вашого випадку!
           </p>
           <Button className="mt-6" onClick={() => open(category)}>
             Консультація безкоштовно
