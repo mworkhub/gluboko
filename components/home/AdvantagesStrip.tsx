@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "motion/react";
-import { Clock, Gem, Heart, Leaf, Lock, Shield, Sparkles, Star } from "lucide-react";
+import { Award, Clock, Gem, Heart, Leaf, Lock, Shield, Sparkles, Star } from "lucide-react";
 import { SectionDivider } from "@/components/shared/SectionDivider";
 import type { AdvantagesSettings } from "@/lib/types";
 
@@ -14,6 +14,7 @@ const ICONS = {
   sparkles: Sparkles,
   heart: Heart,
   star: Star,
+  award: Award,
 } satisfies Record<string, typeof Gem>;
 
 export function AdvantagesStrip({ advantages }: { advantages: AdvantagesSettings }) {
