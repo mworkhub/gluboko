@@ -42,6 +42,6 @@ export const DRY_CLEANING_CARD_VISUAL = {
 };
 
 export const DRY_CLEANING_CARD_VISUAL_MOBILE = {
-  src: "/images/dry-cleaning/Gemini_Generated_Image_bxfvr5bxfvr5bxfv.jpeg",
+  src: "/images/dry-cleaning/Gemini_Generated_Image_49h8td49h8td49h8.jpeg",
   alt: "Хімчистка оббивки дивана спеціальним пристроєм",
 };
