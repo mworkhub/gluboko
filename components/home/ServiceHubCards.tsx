@@ -82,9 +82,9 @@ export function ServiceHubCards({ compact = false }: { compact?: boolean }) {
           )}
 
           {compact ? (
-            <div className="flex flex-1 items-center justify-between gap-2 px-5 py-4">
+            <div className="flex flex-1 items-center justify-between gap-2 px-5 py-2.5">
               <h3 className="font-display text-base font-bold uppercase tracking-wide text-ink">{card.title}</h3>
-              <span className="pointer-events-none relative z-20 flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-ink text-cream transition-colors group-hover:bg-ink-light">
+              <span className="pointer-events-none relative z-20 flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-ink text-cream transition-colors group-hover:bg-ink-light">
                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
               </span>
             </div>
