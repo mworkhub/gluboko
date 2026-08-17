@@ -42,7 +42,7 @@ export function ServiceHubCards({ compact = false }: { compact?: boolean }) {
           whileHover={{ y: -4, scale: 1.015 }}
           className={
             compact
-              ? "group relative flex h-[104px] items-stretch overflow-hidden rounded-[28px] bg-white-warm shadow-md shadow-ink/10"
+              ? "group relative flex items-stretch overflow-hidden rounded-[28px] bg-white-warm shadow-md shadow-ink/10"
               : "group relative aspect-[4/3] overflow-hidden rounded-2xl shadow-lg shadow-ink/10 sm:aspect-[12/7] lg:aspect-[16/8]"
           }
         >
@@ -57,8 +57,8 @@ export function ServiceHubCards({ compact = false }: { compact?: boolean }) {
                 sizes="45vw"
                 className={
                   card.category === "ozone"
-                    ? "scale-[1.5] object-cover object-[41%_41%] transition-transform duration-700 group-hover:scale-[1.55]"
-                    : "scale-[1.5] object-cover object-[38%_37%] transition-transform duration-700 group-hover:scale-[1.55]"
+                    ? "scale-[1.15] object-cover object-[41%_41%] transition-transform duration-700 group-hover:scale-[1.2]"
+                    : "scale-[1.15] object-cover object-[38%_37%] transition-transform duration-700 group-hover:scale-[1.2]"
                 }
               />
               <div className="absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-white-warm" />
