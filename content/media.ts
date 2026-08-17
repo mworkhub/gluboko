@@ -30,3 +30,8 @@ export const DRY_CLEANING_VISUAL = {
   src: "/images/dry-cleaning-hero3.png",
   alt: "Хімчистка оббивки дивана спеціальним пристроєм",
 };
+
+export const DRY_CLEANING_CARD_VISUAL = {
+  src: "/images/dry-cleaning/Gemini_Generated_Image_k40hsk40hsk40hsk.jpeg",
+  alt: "Хімчистка оббивки дивана спеціальним пристроєм",
+};

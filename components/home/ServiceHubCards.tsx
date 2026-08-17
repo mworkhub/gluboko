@@ -7,7 +7,7 @@ import Link from "next/link";
 import { LogoMark } from "@/components/shared/LogoMark";
 import { SectionDivider } from "@/components/shared/SectionDivider";
 import { CATEGORY_META } from "@/content/services";
-import { DRY_CLEANING_VISUAL, OZONE_CARD_VISUAL, OZONE_VISUAL } from "@/content/media";
+import { DRY_CLEANING_CARD_VISUAL, DRY_CLEANING_VISUAL, OZONE_CARD_VISUAL, OZONE_VISUAL } from "@/content/media";
 
 const CARDS = [
   {
@@ -92,11 +92,11 @@ export function ServiceHubCards({ compact = false }: { compact?: boolean }) {
             />
           ) : (
             <Image
-              src={card.visual.src}
-              alt={card.visual.alt}
+              src={DRY_CLEANING_CARD_VISUAL.src}
+              alt={DRY_CLEANING_CARD_VISUAL.alt}
               fill
               sizes="(min-width: 640px) 50vw, 100vw"
-              className="object-cover object-[35%_35%] transition-transform duration-700 group-hover:scale-105"
+              className="object-cover object-[50%_35%] transition-transform duration-700 group-hover:scale-105"
             />
           )}
 
