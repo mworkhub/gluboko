@@ -7,7 +7,7 @@ import Link from "next/link";
 import { LogoMark } from "@/components/shared/LogoMark";
 import { SectionDivider } from "@/components/shared/SectionDivider";
 import { CATEGORY_META } from "@/content/services";
-import { DRY_CLEANING_VISUAL, OZONE_VISUAL } from "@/content/media";
+import { DRY_CLEANING_VISUAL, OZONE_CARD_VISUAL, OZONE_VISUAL } from "@/content/media";
 
 const CARDS = [
   {
@@ -83,55 +83,13 @@ export function ServiceHubCards({ compact = false }: { compact?: boolean }) {
               )}
             </div>
           ) : card.category === "ozone" ? (
-            <div className="absolute inset-0 bg-gradient-to-br from-sphere-start/20 via-white-warm to-sphere-start/10">
-              <motion.span
-                className="absolute left-[10%] top-[12%] h-3 w-3 rounded-full bg-sphere-start/50 blur-[1px]"
-                animate={{ y: [0, -8, 0], opacity: [0.6, 1, 0.6] }}
-                transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut" }}
-              />
-              <motion.span
-                className="absolute left-[76%] top-[54%] h-4 w-4 rounded-full bg-sphere-end/25 blur-[1px]"
-                animate={{ y: [0, -10, 0], opacity: [0.5, 0.9, 0.5] }}
-                transition={{ duration: 5.5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
-              />
-              <motion.span
-                className="absolute left-[85%] top-[16%] h-2 w-2 rounded-full bg-sphere-start/60"
-                animate={{ y: [0, -6, 0], opacity: [0.6, 1, 0.6] }}
-                transition={{ duration: 3.8, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-              />
-              <motion.span
-                className="absolute left-[18%] top-[62%] h-2.5 w-2.5 rounded-full bg-sphere-start/40 blur-[1px]"
-                animate={{ y: [0, -7, 0], opacity: [0.5, 0.9, 0.5] }}
-                transition={{ duration: 4.2, repeat: Infinity, ease: "easeInOut", delay: 1.5 }}
-              />
-              <motion.span
-                className="absolute left-[45%] top-[22%] h-1.5 w-1.5 rounded-full bg-sphere-end/30"
-                animate={{ y: [0, -9, 0], opacity: [0.5, 0.9, 0.5] }}
-                transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 0.3 }}
-              />
-              <motion.span
-                className="absolute left-[60%] top-[75%] h-3 w-3 rounded-full bg-sphere-start/45 blur-[1px]"
-                animate={{ y: [0, -8, 0], opacity: [0.5, 1, 0.5] }}
-                transition={{ duration: 4.8, repeat: Infinity, ease: "easeInOut", delay: 0.8 }}
-              />
-              <motion.span
-                className="absolute left-[30%] top-[35%] h-2 w-2 rounded-full bg-sphere-end/20 blur-[1px]"
-                animate={{ y: [0, -6, 0], opacity: [0.4, 0.8, 0.4] }}
-                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 1.2 }}
-              />
-              <motion.span
-                className="absolute left-[92%] top-[70%] h-2.5 w-2.5 rounded-full bg-sphere-start/50"
-                animate={{ y: [0, -7, 0], opacity: [0.5, 0.9, 0.5] }}
-                transition={{ duration: 4.6, repeat: Infinity, ease: "easeInOut", delay: 1.8 }}
-              />
-              <motion.div
-                className="flex h-full items-center justify-center pb-20 sm:pb-24 lg:pb-28"
-                animate={{ y: [0, -6, 0] }}
-                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-              >
-                <LogoMark size="lg" className="h-28 w-28 sm:h-32 sm:w-32 lg:h-24 lg:w-24" />
-              </motion.div>
-            </div>
+            <Image
+              src={OZONE_CARD_VISUAL.src}
+              alt={OZONE_CARD_VISUAL.alt}
+              fill
+              sizes="(min-width: 640px) 50vw, 100vw"
+              className="object-cover object-[50%_38%] transition-transform duration-700 group-hover:scale-105"
+            />
           ) : (
             <Image
               src={card.visual.src}

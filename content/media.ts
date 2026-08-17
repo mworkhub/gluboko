@@ -21,6 +21,11 @@ export const OZONE_VISUAL = {
   alt: "Світла вітальня з кремовим диваном, де серед сонячного проміння витає легка хмара озону з бульбашками та листям",
 };
 
+export const OZONE_CARD_VISUAL = {
+  src: "/images/ozone/Gemini_Generated_Image_uqekxvuqekxvuqek (2).jpeg",
+  alt: "Світла вітальня з кремовим диваном, де серед сонячного проміння витає легка хмара озону з бульбашками та листям",
+};
+
 export const DRY_CLEANING_VISUAL = {
   src: "/images/dry-cleaning-hero3.png",
   alt: "Хімчистка оббивки дивана спеціальним пристроєм",
