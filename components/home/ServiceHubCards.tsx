@@ -8,6 +8,7 @@ import { SectionDivider } from "@/components/shared/SectionDivider";
 import { CATEGORY_META } from "@/content/services";
 import {
   DRY_CLEANING_CARD_VISUAL,
+  DRY_CLEANING_CARD_VISUAL_MOBILE,
   DRY_CLEANING_VISUAL,
   OZONE_CARD_VISUAL,
   OZONE_CARD_VISUAL_MOBILE,
@@ -50,14 +51,14 @@ export function ServiceHubCards({ compact = false }: { compact?: boolean }) {
           {compact ? (
             <div className="relative w-[42%] shrink-0 overflow-hidden">
               <Image
-                src={card.category === "ozone" ? OZONE_CARD_VISUAL_MOBILE.src : DRY_CLEANING_CARD_VISUAL.src}
-                alt={card.category === "ozone" ? OZONE_CARD_VISUAL_MOBILE.alt : DRY_CLEANING_CARD_VISUAL.alt}
+                src={card.category === "ozone" ? OZONE_CARD_VISUAL_MOBILE.src : DRY_CLEANING_CARD_VISUAL_MOBILE.src}
+                alt={card.category === "ozone" ? OZONE_CARD_VISUAL_MOBILE.alt : DRY_CLEANING_CARD_VISUAL_MOBILE.alt}
                 fill
                 sizes="45vw"
                 className={
                   card.category === "ozone"
                     ? "scale-[1.15] object-cover object-[18%_32%] transition-transform duration-700 group-hover:scale-[1.2]"
-                    : "scale-[1.4] object-cover object-[18%_30%] transition-transform duration-700 group-hover:scale-[1.45]"
+                    : "scale-[1.15] object-cover object-[18%_38%] transition-transform duration-700 group-hover:scale-[1.2]"
                 }
               />
               <div className="absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-white-warm" />
