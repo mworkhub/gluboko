@@ -4,7 +4,6 @@ import { motion } from "motion/react";
 import { ArrowRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { LogoMark } from "@/components/shared/LogoMark";
 import { SectionDivider } from "@/components/shared/SectionDivider";
 import { CATEGORY_META } from "@/content/services";
 import { DRY_CLEANING_CARD_VISUAL, DRY_CLEANING_VISUAL, OZONE_CARD_VISUAL, OZONE_VISUAL } from "@/content/media";
@@ -44,43 +43,18 @@ export function ServiceHubCards({ compact = false }: { compact?: boolean }) {
 
           {compact ? (
             <div className="relative w-[42%] shrink-0 overflow-hidden">
-              {card.category === "ozone" ? (
-                <div className="absolute inset-0 bg-gradient-to-r from-sphere-start/25 via-white-warm/70 to-white-warm">
-                  <motion.span
-                    className="absolute left-[15%] top-[18%] h-2 w-2 rounded-full bg-sphere-start/50 blur-[1px]"
-                    animate={{ y: [0, -6, 0], opacity: [0.6, 1, 0.6] }}
-                    transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut" }}
-                  />
-                  <motion.span
-                    className="absolute left-[70%] top-[60%] h-3 w-3 rounded-full bg-sphere-end/25 blur-[1px]"
-                    animate={{ y: [0, -8, 0], opacity: [0.5, 0.9, 0.5] }}
-                    transition={{ duration: 5.5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
-                  />
-                  <motion.span
-                    className="absolute left-[80%] top-[20%] h-1.5 w-1.5 rounded-full bg-sphere-start/60"
-                    animate={{ y: [0, -5, 0], opacity: [0.6, 1, 0.6] }}
-                    transition={{ duration: 3.8, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-                  />
-                  <motion.div
-                    className="flex h-full items-center justify-center"
-                    animate={{ y: [0, -4, 0] }}
-                    transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                  >
-                    <LogoMark size="lg" className="h-16 w-16" />
-                  </motion.div>
-                </div>
-              ) : (
-                <>
-                  <Image
-                    src={card.visual.src}
-                    alt={card.visual.alt}
-                    fill
-                    sizes="45vw"
-                    className="object-cover object-[35%_60%] transition-transform duration-700 group-hover:scale-105"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-white-warm" />
-                </>
-              )}
+              <Image
+                src={card.category === "ozone" ? OZONE_CARD_VISUAL.src : DRY_CLEANING_CARD_VISUAL.src}
+                alt={card.category === "ozone" ? OZONE_CARD_VISUAL.alt : DRY_CLEANING_CARD_VISUAL.alt}
+                fill
+                sizes="45vw"
+                className={
+                  card.category === "ozone"
+                    ? "object-cover object-[45%_45%] transition-transform duration-700 group-hover:scale-105"
+                    : "object-cover object-[45%_35%] transition-transform duration-700 group-hover:scale-105"
+                }
+              />
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-white-warm" />
             </div>
           ) : card.category === "ozone" ? (
             <Image
