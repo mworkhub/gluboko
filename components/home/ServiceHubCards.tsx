@@ -57,8 +57,8 @@ export function ServiceHubCards({ compact = false }: { compact?: boolean }) {
                 sizes="45vw"
                 className={
                   card.category === "ozone"
-                    ? "scale-[1.6] object-cover object-[41%_41%] transition-transform duration-700 group-hover:scale-[1.65]"
-                    : "scale-[1.15] object-cover object-[38%_37%] transition-transform duration-700 group-hover:scale-[1.2]"
+                    ? "scale-[1.3] object-cover object-[41%_41%] transition-transform duration-700 group-hover:scale-[1.35]"
+                    : "scale-[1.0] object-cover object-[38%_37%] transition-transform duration-700 group-hover:scale-[1.05]"
                 }
               />
               <div className="absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-white-warm" />
