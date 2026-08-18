@@ -27,7 +27,7 @@ export const OZONE_CARD_VISUAL = {
 };
 
 export const OZONE_CARD_VISUAL_MOBILE = {
-  src: "/images/ozone/відредаговано.jpeg",
+  src: "/images/ozone/Gemini_Generated_Image_udkwn8udkwn8udkw.jpeg",
   alt: "Світла вітальня з кремовим диваном, де серед сонячного проміння витає легка хмара озону з бульбашками та листям",
 };
 
