@@ -42,7 +42,7 @@ export function ServiceHubCards({ compact = false }: { compact?: boolean }) {
           whileHover={{ y: -4, scale: 1.015 }}
           className={
             compact
-              ? "group relative flex items-stretch overflow-hidden rounded-[28px] bg-white-warm shadow-md shadow-ink/10"
+              ? "group relative flex h-[68px] items-stretch overflow-hidden rounded-[28px] bg-white-warm shadow-md shadow-ink/10"
               : "group relative aspect-[4/3] overflow-hidden rounded-2xl shadow-lg shadow-ink/10 sm:aspect-[12/7] lg:aspect-[16/8]"
           }
         >
